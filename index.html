@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="AutoDeals helps you discover useful tech gadgets and compare what to look for before you buy.">
+<title>AutoDeals — Smart tech finds</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2e;--panel2:#18233c;--text:#f4f7ff;--muted:#aab6d0;--lime:#c8ff4d;--line:#2a3651;--blue:#8ba8ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#17264a 0,transparent 42%),var(--bg);color:var(--text);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{max-width:1120px;width:calc(100% - 36px);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#0b1020eF;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff12}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.25rem;letter-spacing:-.04em}.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--lime);color:#101729;font-weight:1000}.navlinks{display:flex;gap:25px;color:var(--muted);font-size:.94rem}.navlinks a:hover{color:var(--lime)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:12px 17px;background:var(--lime);color:#111827;font-weight:850;cursor:pointer;transition:transform .15s}.btn:hover{transform:translateY(-2px)}.btn.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+.hero{padding:74px 0 52px;display:grid;grid-template-columns:1.12fr .88fr;gap:42px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #c8ff4d44;background:#c8ff4d0e;color:var(--lime);padding:7px 11px;border-radius:99px;font-size:.82rem;font-weight:800}.eyebrow span{width:7px;height:7px;border-radius:50%;background:var(--lime)}h1{font-size:clamp(2.6rem,6vw,4.8rem);line-height:.99;letter-spacing:-.065em;margin:20px 0}h1 em{font-style:normal;color:var(--lime)}.hero p{color:var(--muted);font-size:1.08rem;max-width:560px}.heroactions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}.note{font-size:.82rem!important;color:#8d9ab7!important;margin-top:18px}
+.hero-card{background:linear-gradient(145deg,#1b2947,#11192c);border:1px solid #ffffff16;border-radius:25px;padding:22px;box-shadow:0 28px 70px #0004;transform:rotate(1deg)}.hero-card-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.83rem}.live{color:var(--lime);font-weight:800}.gadget-art{height:240px;margin:18px 0;position:relative;display:grid;place-items:center;overflow:hidden;border-radius:18px;background:radial-gradient(circle at 50% 45%,#384d7d,#151e35 62%)}.orb{position:absolute;border:1px solid #ffffff20;border-radius:50%;width:225px;height:225px}.orb.two{width:175px;height:175px}.earbud{position:absolute;width:58px;height:104px;background:linear-gradient(120deg,#f9fbff,#8794aa);border-radius:35px 35px 28px 28px;box-shadow:inset -9px -3px 12px #3b4661,0 15px 30px #0006;transform:rotate(27deg);left:34%;top:25%}.earbud:after{content:"";position:absolute;width:24px;height:58px;background:linear-gradient(90deg,#e8edf8,#909db5);border-radius:14px;left:18px;top:64px}.earbud.b{left:56%;top:35%;transform:rotate(-25deg) scale(.78)}.pill{position:absolute;bottom:18px;right:18px;background:#0b1020c9;border:1px solid #ffffff24;border-radius:10px;padding:8px 11px;font-size:.8rem}.hero-card h3{margin:0;font-size:1.25rem}.hero-card p{font-size:.9rem;margin:5px 0 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.stat{background:#ffffff08;border:1px solid #ffffff10;border-radius:13px;padding:12px}.stat strong{display:block;font-size:1.1rem}.stat small{color:var(--muted)}
+section{padding:48px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}.kicker{color:var(--lime);text-transform:uppercase;letter-spacing:.13em;font-size:.75rem;font-weight:900}h2{font-size:clamp(1.8rem,4vw,2.65rem);line-height:1.05;letter-spacing:-.05em;margin:8px 0}.section-head p{color:var(--muted);max-width:470px;margin:0}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 23px}.filter{border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:99px;padding:8px 13px;cursor:pointer;font:inherit;font-size:.9rem}.filter.active,.filter:hover{background:var(--lime);border-color:var(--lime);color:#111827;font-weight:800}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.product{background:linear-gradient(160deg,#151f36,#101729);border:1px solid var(--line);border-radius:19px;padding:18px;display:flex;flex-direction:column;min-height:300px}.product-visual{height:112px;border-radius:13px;background:linear-gradient(145deg,#263653,#131c31);display:grid;place-items:center;font-size:3rem;margin-bottom:15px}.product-tag{color:var(--lime);font-size:.75rem;font-weight:850;text-transform:uppercase;letter-spacing:.09em}.product h3{margin:5px 0 6px;font-size:1.12rem}.product p{color:var(--muted);font-size:.91rem;margin:0 0 16px}.product .btn{margin-top:auto;width:100%;font-size:.92rem}.disclaimer{font-size:.78rem;color:#8997b3;margin-top:12px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.step{border:1px solid var(--line);background:#ffffff06;border-radius:17px;padding:20px}.num{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:var(--lime);color:#111827;font-weight:950}.step h3{margin:15px 0 7px}.step p{color:var(--muted);font-size:.94rem;margin:0}
+.signup{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center;background:linear-gradient(115deg,#1c2b48,#121a2d);border:1px solid #ffffff18;border-radius:24px;padding:30px}.signup p{color:var(--muted)}.signup form{display:flex;gap:9px}.signup input{min-width:0;flex:1;border:1px solid var(--line);background:#0b1020;color:var(--text);border-radius:12px;padding:13px;font:inherit}.status{color:var(--lime);font-size:.9rem;min-height:24px}
+footer{padding:32px 0 45px;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.small-links{display:flex;gap:17px}
+@media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:45px}.hero-card{transform:none}.products{grid-template-columns:repeat(2,1fr)}.how{grid-template-columns:1fr}.signup{grid-template-columns:1fr}.navlinks{gap:12px}.navlinks a:nth-child(2){display:none}}
+@media(max-width:520px){.wrap{width:calc(100% - 26px)}.navlinks{display:none}.products{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.signup form{flex-direction:column}.stats{gap:7px}.stat{padding:9px}.hero{gap:28px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#"><span class="logo">A</span> AutoDeals</a>
+<nav class="navlinks"><a href="#deals">Gadget picks</a><a href="#how">How it works</a><a href="#newsletter">Deal alerts</a></nav>
+<a class="btn" href="#deals">Explore picks ↗</a>
+</div></header>
+<main>
+<div class="wrap hero">
+<div><div class="eyebrow"><span></span> SMART FINDS. LESS SCROLLING.</div>
+<h1>Good tech.<br><em>Better choices.</em></h1>
+<p>Discover handy gadgets for school, gaming and everyday life. Straightforward buying tips, without the tech waffle.</p>
+<div class="heroactions"><a class="btn" href="#deals">Explore gadget picks →</a><a class="btn secondary" href="#how">How AutoDeals works</a></div>
+<p class="note">Independent recommendations. Prices and availability can change.</p></div>
+<div class="hero-card"><div class="hero-card-top"><span>EDITOR'S STARTER PICK</span><span class="live">● FEATURED</span></div>
+<div class="gadget-art" aria-label="Illustration of wireless earbuds"><div class="orb"></div><div class="orb two"></div><div class="earbud"></div><div class="earbud b"></div><div class="pill">Everyday tech</div></div>
+<h3>Wireless earbuds</h3><p>What to compare: comfort, battery life, microphone quality and return policy.</p>
+<div class="stats"><div class="stat"><strong>Battery</strong><small>Compare hours</small></div><div class="stat"><strong>Fit</strong><small>Comfort first</small></div><div class="stat"><strong>Value</strong><small>Check reviews</small></div></div>
+</div>
+</div>
+<section id="deals"><div class="wrap">
+<div class="section-head"><div><div class="kicker">The shortlist</div><h2>Gadget picks worth checking</h2></div><p>Starter guides, not fake discounts. Use these checklists to find a product that fits your needs and budget.</p></div>
+<div class="filters" role="group" aria-label="Filter gadget categories">
+<button class="filter active" data-filter="all">All picks</button><button class="filter" data-filter="audio">Audio</button><button class="filter" data-filter="gaming">Gaming</button><button class="filter" data-filter="everyday">Everyday tech</button>
+</div>
+<div class="products">
+<article class="product" data-category="audio"><div class="product-visual">🎧</div><div class="product-tag">Audio</div><h3>Wireless earbuds</h3><p>Compare comfort, battery life, call quality and whether the case supports quick charging.</p><a class="btn secondary outbound" href="https://www.google.com/search?q=wireless+earbuds+reviews" target="_blank" rel="noopener">Compare options ↗</a></article>
+<article class="product" data-category="gaming"><div class="product-visual">🎮</div><div class="product-tag">Gaming</div><h3>Gaming headset</h3><p>Look for a comfortable fit, a clear microphone, device compatibility and a sensible warranty.</p><a class="btn secondary outbound" href="https://www.google.com/search?q=gaming+headset+reviews" target="_blank" rel="noopener">Compare options ↗</a></article>
+<article class="product" data-category="everyday"><div class="product-visual">🔋</div><div class="product-tag">Everyday tech</div><h3>Portable power bank</h3><p>Check capacity, charging speed, safety certifications and airline rules before choosing.</p><a class="btn secondary outbound" href="https://www.google.com/search?q=portable+power+bank+reviews" target="_blank" rel="noopener">Compare options ↗</a></article>
+<article class="product" data-category="everyday"><div class="product-visual">⌚</div><div class="product-tag">Everyday tech</div><h3>Budget smartwatch</h3><p>Check phone compatibility, battery life, water-resistance rating and which features need a subscription.</p><a class="btn secondary outbound" href="https://www.google.com/search?q=budget+smartwatch+reviews" target="_blank" rel="noopener">Compare options ↗</a></article>
+<article class="product" data-category="gaming"><div class="product-visual">⌨️</div><div class="product-tag">Gaming</div><h3>Compact keyboard</h3><p>Compare layout, switch feel, noise, connection type and whether it works with your setup.</p><a class="btn secondary outbound" href="https://www.google.com/search?q=compact+gaming+keyboard+reviews" target="_blank" rel="noopener">Compare options ↗</a></article>
+<article class="product" data-category="everyday"><div class="product-visual">🔌</div><div class="product-tag">Everyday tech</div><h3>Fast wall charger</h3><p>Match the charging standard and wattage to your device, and choose a reputable safety-tested brand.</p><a class="btn secondary outbound" href="https://www.google.com/search?q=USB-C+fast+charger+reviews" target="_blank" rel="noopener">Compare options ↗</a></article>
+</div>
+<p class="disclaimer">These are research links, not affiliate links yet. AutoDeals does not currently earn commission from them.</p>
+</div></section>
+<section id="how"><div class="wrap"><div class="section-head"><div><div class="kicker">Keep it simple</div><h2>How this could earn</h2></div><p>Set it up carefully once, then keep the recommendations useful and up to date.</p></div>
+<div class="how"><div class="step"><div class="num">1</div><h3>Publish helpful guides</h3><p>Write honest comparisons such as “best earbuds for under £30” and explain how you chose them.</p></div><div class="step"><div class="num">2</div><h3>Add approved affiliate links</h3><p>When eligible, replace research links with your tracked links from a programme that accepts you.</p></div><div class="step"><div class="num">3</div><h3>Build steady traffic</h3><p>Share useful short videos and improve pages for search. Check clicks and update stale prices regularly.</p></div></div>
+</div></section>
+<section id="newsletter"><div class="wrap"><div class="signup"><div><div class="kicker">Occasional updates</div><h2>Get the next good find.</h2><p>This demo form is visual only; it does not collect or store email addresses. Connect a real email service before publishing it.</p></div><div><form id="signupForm"><input id="email" type="email" placeholder="Your email address" aria-label="Your email address" required><button class="btn" type="submit">Notify me</button></form><div class="status" id="status" aria-live="polite"></div></div></div></div></section>
+</main>
+<footer><div class="wrap foot"><div>© <span id="year"></span> AutoDeals · Built to help people buy smarter.</div><div class="small-links"><a href="#deals">Gadget picks</a><a href="#how">About</a><a href="#newsletter">Updates</a></div></div><div class="wrap" style="margin-top:16px">Disclosure: If affiliate links are added later, clearly label them. Only publish claims and prices you have checked. This demo is not a live shop and does not guarantee income.</div></footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const filterButtons = document.querySelectorAll('.filter');
+const products = document.querySelectorAll('.product');
+filterButtons.forEach(button => button.addEventListener('click', () => {
+  filterButtons.forEach(b => b.classList.toggle('active', b === button));
+  products.forEach(card => card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter);
+}));
+document.getElementById('signupForm').addEventListener('submit', event => {
+  event.preventDefault();
+  document.getElementById('status').textContent = 'Demo only — connect an email service to collect sign-ups safely.';
+});
+</script>
+</body>
+</html>
